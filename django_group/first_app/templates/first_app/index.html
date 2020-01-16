@@ -10,8 +10,33 @@
 </head>
 <body>
     <div class="flex_container">
+        
         <div class="container">
-            <h1>Rock Papper Scissors</h1>
+            <h1>Rock Paper Scissors</h1>
+            <h3><strong>Wins:</strong> {{request.session.wins}}</h3>
+            <h3><strong>Losses:</strong> {{request.session.losses}}</h3>
+            <h3><strong>Ties:</strong> {{request.session.ties}}</h3>
+        </div>
+        <div class="choices">
+            <form action="/process_play" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="player_choice" value="rock">
+                <button class="rock" type="submit">Rock</button>
+            </form>
+            <form action="/process_play" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="player_choice" value="paper">
+                <button class="paper" type="submit">Paper</button>
+            </form>
+            <form action="/process_play" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="player_choice" value="scissors">
+                <button class="scissors" type="submit">Scissors</button>
+            </form>
+            
+
+           
+            
         </div>
     </div>
 </body>
